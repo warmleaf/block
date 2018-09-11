@@ -14,10 +14,10 @@ async function build() {
       var components = await getDiretories(
         __root + "/packages/" + item + "/src"
       );
+      var babel = __root + "/node_modules/.bin/babel";
+      var pkg_root = __root + "/packages/" + item;
       return Promise.all(
         components.map(async component => {
-          var babel = __root + "/node_modules/.bin/babel";
-          var pkg_root = __root + "/packages/" + item;
           var error = false;
           try {
             await cp.execSync(
@@ -31,7 +31,10 @@ async function build() {
             package: item,
             name: component
           });
-        })
+        }),
+        await cp.execSync(
+          `${babel} --config-file ${pkg_root}/.babelrc  ${pkg_root}/src/index.js -d ${pkg_root}/lib`
+        )
       );
     })
   );
@@ -45,10 +48,7 @@ ${_out_
       .filter(i => !i.error)
       .map(
         i =>
-          "    " +
-          chalk.cyan("@rbu/" + i.package) +
-          " - " +
-          chalk.green(i.name)
+          "    " + chalk.cyan("@rbu/" + i.package) + " - " + chalk.green(i.name)
       )
       .join("\n")}`
   );
@@ -60,10 +60,7 @@ ${_out_
         .filter(i => i.error)
         .map(
           i =>
-            "    " +
-            chalk.cyan("@rbu/" + i.package) +
-            " - " +
-            chalk.red(i.name)
+            "    " + chalk.cyan("@rbu/" + i.package) + " - " + chalk.red(i.name)
         )
         .join("\n")}
         `
