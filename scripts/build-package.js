@@ -21,7 +21,7 @@ async function build() {
           var error = false;
           try {
             await cp.execSync(
-              `${babel} --config-file ${pkg_root}/.babelrc  ${pkg_root}/src/${component}/*[!story].js -d ${__root}/lib/${item}/${component}`
+              `${babel} --config-file ${pkg_root}/.babelrc  ${pkg_root}/src/${component}/*[!story].js -d ${pkg_root}/lib/${component}`
             );
           } catch (err) {
             error = true;
