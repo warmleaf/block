@@ -10,7 +10,7 @@
   ],
   "author": "orlo wang <ow.cc@outlook.com>",
   "homepage": "http://git@github.com:warmleaf/rbu.git",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/base.js",
   "directories": {
     "lib": "lib",
@@ -38,5 +38,5 @@
     "react": "^16.4.2",
     "styled-components": "^3.4.5"
   },
-  "gitHead": "29ea212d79d9a03a2fee29bac9cfa1ffce3aaf7a"
+  "gitHead": "b5e3e8090873d4e64ed8927723c6ee46c6bca6d6"
 }
