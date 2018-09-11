@@ -33,9 +33,5 @@
     "publish": "lerna publish",
     "prepublish": "node scripts/build-package.js"
   },
-  "version": "0.1.5",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  }
+  "version": "0.1.5"
 }
