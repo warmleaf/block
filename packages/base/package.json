@@ -32,6 +32,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
     "prop-types": "^15.6.2"
   },
   "peerDependencies": {
@@ -41,5 +42,8 @@
   "gitHead": "f487ba5ecc3b77e6d8b4c890d6a0e369281fc077",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "kind-of": "^6.0.2"
   }
 }
