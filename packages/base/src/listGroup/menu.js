@@ -56,6 +56,7 @@ class TwoLevelMenu extends Component {
           if (item.children) {
             return (
               <ListGroup
+                key={item.name}
                 expand={false}
                 avatar={avatarRender(item.avatar)}
                 title={item.label}
@@ -74,7 +75,7 @@ class TwoLevelMenu extends Component {
 
 TwoLevelMenu.propTypes = {
   expand: bool,
-  data: object,
+  data: array,
   multiple: bool,
   itemRender: func,
   avatarRender: func

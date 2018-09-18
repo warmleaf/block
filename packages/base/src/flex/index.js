@@ -135,7 +135,7 @@ Flex.propTypes = {
   /** left */
   lt: string,
   /** inline flex */
-  inline: string,
+  inline: bool,
   /** margin */
   m: string,
   /** margin-bottom */
@@ -173,9 +173,9 @@ Flex.propTypes = {
   /** vertical center */
   vc: string,
   /** horizontal center */
-  hc: string,
+  hc: oneOfType([string, bool]),
   /** -webkit-overflow-scrolling */
-  rebound: string,
+  rebound: oneOfType([string, bool]),
   /** position relative */
   relative: bool,
   /** border-radius */
