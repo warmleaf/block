@@ -1,5 +1,5 @@
 import React from "react";
-import { string, oneOf, number } from "prop-types";
+import { string, oneOf, number, bool, oneOfType } from "prop-types";
 import Flex from "../flex";
 
 function pickColor(status) {
@@ -43,13 +43,13 @@ const Avatar = ({ src, status, size, statusBgColor, ...rest }) => (
 
 Avatar.propTypes = {
   /** size of avatar */
-  size: number,
+  size: string,
   /** avatar source uri */
   src: string,
   /** avatar status */
   status: oneOf(["idle", "dnd", "on", "off"]),
   /** status background color, should be same with avatar background */
-  statusBgColor: string
+  statusBgColor: oneOfType([bool, number])
 };
 
 Avatar.defaultProps = {

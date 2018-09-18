@@ -15,7 +15,7 @@ storiesOf('Case Component|Avatar Card', module)
 <Avatar 
   title="orlo wang"
   subtitle="ow.cc@oulook.com"
-  src="https://www.qq745.com/uploads/allimg/141009/1-14100ZT451-51.jpg"
+  avatarSrc="https://www.qq745.com/uploads/allimg/141009/1-14100ZT451-51.jpg"
   status="dnd"
 />
       `

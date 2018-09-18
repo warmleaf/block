@@ -14,10 +14,13 @@ function pickBreakType(type) {
   }
 }
 
-const Text = styled.span.attrs({
-  clampOne: props => props.clamp === true || props.clamp == 1,
-  clampMore: props => props.clamp > 1 && parseInt(props.clamp)
-})`
+function clamp(src) {
+  if (src === true || src == 1) return { one: true };
+  if (src > 1) return { more: parseInt(src) };
+  return {}
+}
+
+const Text = styled.span`
   background-color: ${props => props.bgc};
   border: ${props => props.b};
   border-bottom: ${props => props.bb};
@@ -30,7 +33,7 @@ const Text = styled.span.attrs({
   color: ${props => props.c};
   cursor: ${props => props.cur};
   display: ${props =>
-    props.clampMore ? "-webkit-box" : props.clamp ? "block" : "inline-block"};
+    clamp(props.clamp).more ? "-webkit-box" : props.clamp ? "block" : "inline-block"};
   margin: ${props => props.m};
   margin-bottom: ${props => props.mb};
   margin-left: ${props => props.ml};
@@ -49,11 +52,11 @@ const Text = styled.span.attrs({
   text-overflow: ${props => props.clamp && "ellipsis"};
   transform: ${props => props.t};
   transition: ${props => props.ani};
-  white-space: ${props => props.clampOne && "nowrap"};
+  white-space: ${props => clamp(props.clamp).one && "nowrap"};
   width: ${props => props.w};
   word-break: ${props => pickBreakType(props.break)};
-  -webkit-box-orient: ${props => props.clampMore && "vertical"};
-  -webkit-line-clamp: ${props => props.clampMore};
+  -webkit-box-orient: ${props => clamp(props.clamp).more && "vertical"};
+  -webkit-line-clamp: ${props => clamp(props.clamp).more};
 `;
 
 Text.propTypes = {

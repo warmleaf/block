@@ -1,5 +1,5 @@
 import React from "react";
-import { string, oneOf } from "prop-types";
+import { string, oneOf, number, bool, oneOfType } from "prop-types";
 import Flex from "../flex";
 import Text from "../text";
 import Avatar from "../avatar";
@@ -39,13 +39,13 @@ AvatarCard.propTypes = {
   /** subtitle of avatar */
   subtitle: string,
   /** size of avatar */
-  avatarSize: string,
+  avatarSize: oneOfType([bool, number]),
   /** avatar source uri */
   avatarSrc: string,
   /** avatar status */
   avatarStatus: oneOf(["idle", "dnd", "on", "off"]),
   /** status background color, should be same with avatar background */
-  avatarStatusBgColor: string
+  avatarStatusBgColor: oneOfType([bool, number])
 };
 
 export default AvatarCard;

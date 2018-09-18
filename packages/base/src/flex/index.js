@@ -1,4 +1,4 @@
-import { string, number, bool } from "prop-types";
+import { string, number, bool, oneOfType } from "prop-types";
 import styled from "styled-components";
 
 const Flex = styled.div`
@@ -127,7 +127,7 @@ Flex.propTypes = {
   /** cursor */
   cur: string,
   /** flex size */
-  full: bool | number,
+  full: oneOfType([bool, number]),
   /** height */
   h: string,
   /** display hidden */
@@ -157,7 +157,7 @@ Flex.propTypes = {
   /** overflow hidden */
   nonOverflow: bool,
   /** background no repeact */
-  noRepeatBg: string,
+  noRepeatBg: bool,
   /** opacity */
   o: number,
   /** padding */
