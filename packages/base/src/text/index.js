@@ -2,6 +2,7 @@ import { string } from "prop-types";
 import styled from "styled-components";
 
 function pickBreakType(type) {
+  if (!type) return null;
   switch (type) {
     case "breakAll":
       return "break-all";
@@ -13,7 +14,10 @@ function pickBreakType(type) {
   }
 }
 
-const Text = styled.span`
+const Text = styled.span.attrs({
+  clampOne: props => props.clamp === true || props.clamp == 1,
+  clampMore: props => props.clamp > 1 && parseInt(props.clamp)
+})`
   background-color: ${props => props.bgc};
   border: ${props => props.b};
   border-bottom: ${props => props.bb};
@@ -25,25 +29,31 @@ const Text = styled.span`
   box-sizing: border-box;
   color: ${props => props.c};
   cursor: ${props => props.cur};
-  display: inline-block;
-  text-indent: ${props => props.indent};
+  display: ${props =>
+    props.clampMore ? "-webkit-box" : props.clamp ? "block" : "inline-block"};
   margin: ${props => props.m};
   margin-bottom: ${props => props.mb};
   margin-left: ${props => props.ml};
   margin-right: ${props => props.mr};
   margin-top: ${props => props.mt};
   font-size: ${props => props.size};
+  opacity: ${props => props.o};
+  overflow: ${props => (props.clamp ? "hidden" : "inline-block")};
   padding: ${props => props.p};
   padding-bottom: ${props => props.pb};
   padding-left: ${props => props.pl};
   padding-right: ${props => props.pr};
   padding-top: ${props => props.pt};
-  opacity: ${props => props.o};
   text-align: ${props => props.align};
+  text-indent: ${props => props.indent};
+  text-overflow: ${props => props.clamp && "ellipsis"};
   transform: ${props => props.t};
   transition: ${props => props.ani};
+  white-space: ${props => props.clampOne && "nowrap"};
   width: ${props => props.w};
-  word-break: ${props => (props.break ? pickBreakType(props.break) : null)};
+  word-break: ${props => pickBreakType(props.break)};
+  -webkit-box-orient: ${props => props.clampMore && "vertical"};
+  -webkit-line-clamp: ${props => props.clampMore};
 `;
 
 Text.propTypes = {
