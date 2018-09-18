@@ -1,6 +1,6 @@
 {
   "name": "@rbu/base",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "web components base on react",
   "keywords": [
     "react",
@@ -30,9 +30,9 @@
     "url": "https://github.com/warmleaf/rbu/issues"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
     "prop-types": "^15.6.2"
   },
   "peerDependencies": {
