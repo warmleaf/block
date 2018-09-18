@@ -22,9 +22,9 @@ const AvatarCard = ({
       mr={parseInt(avatarSize || 32) / 4 + "px"}
     />
     <Flex full column vc={subtitle ? "space-around" : true}>
-      <Text className="rbu-basic-ac-name">{title}</Text>
+      <Text clamp className="rbu-basic-ac-name">{title}</Text>
       {typeof subtitle === "string" ? (
-        <Text className="rbu-basic-ac-subname">{subtitle}</Text>
+        <Text clamp className="rbu-basic-ac-subname">{subtitle}</Text>
       ) : typeof subtitle === "function" ? (
         subtitle()
       ) : (
