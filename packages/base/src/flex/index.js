@@ -171,7 +171,7 @@ Flex.propTypes = {
   /** padding-top */
   pt: string,
   /** vertical center */
-  vc: string,
+  vc: oneOfType([string, bool]),
   /** horizontal center */
   hc: oneOfType([string, bool]),
   /** -webkit-overflow-scrolling */

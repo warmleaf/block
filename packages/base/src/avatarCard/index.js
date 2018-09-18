@@ -13,14 +13,15 @@ const AvatarCard = ({
   subtitle,
   ...rest
 }) => (
-  <Flex className="rbu-base-avatar-card" {...rest}>
+  <Flex vc className="rbu-base-avatar-card" {...rest}>
     <Avatar
       src={avatarSrc}
       status={avatarStatus}
       size={avatarSize}
       statusBgColor={avatarStatusBgColor}
+      mr={parseInt(avatarSize || 32) / 4 + "px"}
     />
-    <Flex column vc={subtitle ? "space-around" : true}>
+    <Flex full column vc={subtitle ? "space-around" : true}>
       <Text className="rbu-basic-ac-name">{title}</Text>
       {typeof subtitle === "string" ? (
         <Text className="rbu-basic-ac-subname">{subtitle}</Text>
