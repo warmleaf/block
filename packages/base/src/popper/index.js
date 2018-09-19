@@ -24,6 +24,10 @@ export default class Pop extends Component {
   }
 
   _activeSetter = evt => {
+    if (evtType === "pointerdown" && onPointerDown) onPointerDown();
+    if (evtType === "pointerover" && onPointerOver) onPointerOver();
+    if (evtType === "pointerleave" && onPointerLeave) onPointerLeave();
+
     const {
       place,
       overkeep,
@@ -37,17 +41,26 @@ export default class Pop extends Component {
       bottom = null,
       right = null,
       transform = null,
-      active = !this.state.active;
+      active = null;
     const rect = evt.target.getBoundingClientRect();
     const scrollTop = document.scrollingElement.scrollTop;
     const scrollLeft = document.scrollingElement.scrollLeft;
 
-    if (evtType === "pointerdown" && onPointerDown) onPointerDown();
-    if (evtType === "pointerover" && onPointerOver) onPointerOver();
-    if (evtType === "pointerleave" && onPointerLeave) onPointerLeave();
-
     this.arrowWidth = rect.width;
     this.arrowHeight = rect.height;
+
+    switch (evtType) {
+      case "pointerleave":
+        active = false;
+        break;
+      case "pointerover":
+        active = true;
+        break;
+      case "pointerdown":
+      default:
+        active = !this.state.active;
+        break;
+    }
 
     switch (place) {
       case "top":

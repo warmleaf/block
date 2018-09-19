@@ -12,7 +12,7 @@ storiesOf('Base Component|Popper', module)
       },
       code: `
 <Popper content="i'm some tips">
-  <span>I'm popper body</span>
+  <span>ok <span>I'm popper body</span></span>
 </Popper>
       `
     }
