@@ -33,8 +33,5 @@
     "publish": "lerna publish",
     "prepublish": "node scripts/build-package.js"
   },
-  "version": "0.1.5",
-  "dependencies": {
-    "react-icon-base": "^2.1.2"
-  }
+  "version": "0.1.5"
 }

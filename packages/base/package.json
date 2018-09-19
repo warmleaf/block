@@ -44,6 +44,7 @@
     "access": "public"
   },
   "dependencies": {
-    "kind-of": "^6.0.2"
+    "kind-of": "^6.0.2",
+    "react-icon-base": "^2.1.2"
   }
 }
