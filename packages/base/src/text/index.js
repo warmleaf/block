@@ -17,7 +17,7 @@ function pickBreakType(type) {
 function clamp(src) {
   if (src === true || src == 1) return { one: true };
   if (src > 1) return { more: parseInt(src) };
-  return {}
+  return {};
 }
 
 const Text = styled.span`
@@ -33,7 +33,11 @@ const Text = styled.span`
   color: ${props => props.c};
   cursor: ${props => props.cur};
   display: ${props =>
-    clamp(props.clamp).more ? "-webkit-box" : props.clamp ? "block" : "inline-block"};
+    clamp(props.clamp).more
+      ? "-webkit-box"
+      : props.clamp
+        ? "block"
+        : "inline-block"};
   margin: ${props => props.m};
   margin-bottom: ${props => props.mb};
   margin-left: ${props => props.ml};
@@ -41,7 +45,7 @@ const Text = styled.span`
   margin-top: ${props => props.mt};
   font-size: ${props => props.size};
   opacity: ${props => props.o};
-  overflow: ${props => (props.clamp ? "hidden" : "inline-block")};
+  overflow: ${props => props.clamp && "hidden"};
   padding: ${props => props.p};
   padding-bottom: ${props => props.pb};
   padding-left: ${props => props.pl};

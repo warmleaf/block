@@ -133,21 +133,21 @@ export default class Pop extends Component {
           break;
         case "string":
         default:
-          ctx = popRender ? (
-            <popRender>{content}</popRender>
-          ) : (
-            <Popper
-              width={this.arrowWidth}
-              height={this.arrowHeight}
-              size={arrowSize}
-              direcion={this.darrowDirection}
-            >
-              {content}
-            </Popper>
-          );
+          ctx = content;
           break;
       }
-
+      ctx = popRender ? (
+        <popRender>{ctx}</popRender>
+      ) : (
+        <Popper
+          width={this.arrowWidth}
+          height={this.arrowHeight}
+          size={arrowSize}
+          direcion={this.darrowDirection}
+        >
+          {ctx}
+        </Popper>
+      );
       switch (tigger) {
         case "click":
           evt = { onPointerDown: this._activeSetter };

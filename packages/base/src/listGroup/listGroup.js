@@ -132,7 +132,6 @@ class ListGroup extends Component {
         {...rest}
       >
         <Flex
-          hc
           className="ra-case-list-group-title-container"
           onPointerOver={this._titleOverHandle}
           onPointerLeave={this._titleLeaveHandle}
