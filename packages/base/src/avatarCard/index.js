@@ -1,5 +1,5 @@
 import React from "react";
-import { string, oneOf, number, bool, oneOfType } from "prop-types";
+import { string, oneOf, number, func, bool, oneOfType, element } from "prop-types";
 import Flex from "../flex";
 import Text from "../text";
 import Avatar from "../avatar";
@@ -38,7 +38,7 @@ AvatarCard.propTypes = {
   /** name of avatar */
   title: string,
   /** subtitle of avatar */
-  subtitle: string,
+  subtitle: oneOfType([string, func, element]),
   /** size of avatar */
   avatarSize: oneOfType([bool, number]),
   /** avatar source uri */
