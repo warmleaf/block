@@ -2,6 +2,7 @@ var chalk = require("chalk");
 var emoji = require("node-emoji");
 var getDiretories = require("../helpers/get_diretories");
 var path = require("path");
+var fs = require("fs-extra");
 var cp = require("child_process");
 
 var __root = path.resolve(__dirname, "../");
@@ -20,6 +21,7 @@ async function build() {
         components.map(async component => {
           var error = false;
           try {
+            await fs.removeSync(`${pkg_root}/lib`);
             await cp.execSync(
               `${babel} --config-file ${pkg_root}/.babelrc  ${pkg_root}/src -d ${pkg_root}/lib`
             );
